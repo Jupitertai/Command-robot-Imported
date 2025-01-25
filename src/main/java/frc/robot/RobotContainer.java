@@ -41,8 +41,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    mChassis.setDefaultCommand(
-      new RunCommand(()-> mChassis.drive(m_driverController.getLeftX()*0.5,m_driverController.getRightY()*0.5),mChassis));
+    // mChassis.setDefaultCommand(
+    //   new RunCommand(()-> mChassis.drive(m_driverController.getLeftX()*0.5,m_driverController.getRightY()*0.5),mChassis));
   }
 
   /**
@@ -50,7 +50,7 @@ public class RobotContainer {
    * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
    * predicate, or via the named factories in {@link
    * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller++++
+   * CommandXboxController Xbox}/{@link edumo.wpi.first.wpilibj2.command.button.CommandPS4Controller++++
    * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
@@ -59,9 +59,9 @@ public class RobotContainer {
     // new JoystickButton(m_driverController, 1).whileTrue(new RunCommand(mChassis::autotarget)).onFalse(new InstantCommand(mChassis::stop));
     // Schedule exampleMethodCommand when the Xbox controller's B button is pressed,  
     // cancelling on release.
-    new JoystickButton(m_driverController, 1).whileTrue(new RunCommand(mChassis::autotarget)).onFalse(new InstantCommand(mChassis::stop));
-    new JoystickButton(m_driverController, 2).whileTrue(new RunCommand(mSmartPhotonvision::letsgo)).onFalse(new InstantCommand(mChassis::stop));
     
+    new JoystickButton(m_driverController, 1).whileTrue(mSmartPhotonvision).onFalse(new InstantCommand(mChassis::stop));
+    // new JoystickButton(m_driverController, 1).whileTrue(new RunCommand(mChassis::autotarget)).onFalse(new InstantCommand(mChassis::stop));
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *

@@ -11,7 +11,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.chassisID;
 import frc.robot.LimelightHelpers;
@@ -32,7 +31,7 @@ public class chassis extends SubsystemBase {
     Frontright.configFactoryDefault();
     RearLeft.configFactoryDefault();
     Rearright.configFactoryDefault();
-
+  
     Frontleft.setInverted(false);
     Frontright.setInverted(false);
     RearLeft.setInverted(false);
@@ -40,6 +39,28 @@ public class chassis extends SubsystemBase {
 
     RearLeft.follow(Frontleft);
     Rearright.follow(Frontright);
+
+    Frontleft.setSafetyEnabled(true);
+    Frontleft.setSafetyEnabled(false); 
+    Frontleft.setExpiration(.1 );
+    Frontleft.feed();
+
+    
+    Frontright.setSafetyEnabled(true);
+    Frontright.setSafetyEnabled(false); 
+    Frontright.setExpiration(.1 );
+    Frontright.feed();
+    
+    RearLeft.setSafetyEnabled(true);
+    RearLeft.setSafetyEnabled(false); 
+    RearLeft.setExpiration(.1 );
+    RearLeft.feed();
+
+    
+    Rearright.setSafetyEnabled(true);
+    Rearright.setSafetyEnabled(false); 
+    Rearright.setExpiration(.1 );
+    Rearright.feed();
   }
 
   public void drive(double X, double Y) {
@@ -47,78 +68,83 @@ public class chassis extends SubsystemBase {
   }
 
   public void forward() {
-    Frontleft.set(0.3);
-    Frontright.set(0.3);
-    RearLeft.set(0.3);
-    Rearright.set(0.3);
-    Frontleft.setInverted(false);
-    Frontright.setInverted(true);
-    RearLeft.setInverted(false);
-    Rearright.setInverted(true);
+    System.out.println("forward");
+    // Frontleft.set(0.3);
+    // Frontright.set(0.3);
+    // RearLeft.set(0.3);
+    // Rearright.set(0.3);
+    // Frontleft.setInverted(false);
+    // Frontright.setInverted(true);
+    // RearLeft.setInverted(false);
+    // Rearright.setInverted(true);
 
   }
 
   public void backward() {
-    Frontleft.set(0.3);
-    Frontright.set(0.3);
-    RearLeft.set(0.3);
-    Rearright.set(0.3);
-    Frontleft.setInverted(true);
-    Frontright.setInverted(false);
-    RearLeft.setInverted(true);
-    Rearright.setInverted(false);
+    System.out.println("backward");
+    // Frontleft.set(0.3);
+    // Frontright.set(0.3);
+    // RearLeft.set(0.3);
+    // Rearright.set(0.3);
+    // Frontleft.setInverted(true);
+    // Frontright.setInverted(false);
+    // RearLeft.setInverted(true);
+    // Rearright.setInverted(false);
 
   }
 
   public void right() {
-    Frontleft.set(0.3);
-    Frontright.set(0.3);
-    RearLeft.set(0.3);
-    Rearright.set(0.3);
-    Frontleft.setInverted(false);
-    Frontright.setInverted(false);
-    RearLeft.setInverted(false);
-    Rearright.setInverted(false);
+    System.out.println("right");
+    // Frontleft.set(0.3);
+    // Frontright.set(0.3);
+    // RearLeft.set(0.3);
+    // Rearright.set(0.3);
+    // Frontleft.setInverted(false);
+    // Frontright.setInverted(false);
+    // RearLeft.setInverted(false);
+    // Rearright.setInverted(false);
 
   }
 
   public void left() {
-    Frontleft.set(0.3);
-    Frontright.set(0.3);
-    RearLeft.set(0.3);
-    Rearright.set(0.3);
-    Frontleft.setInverted(true);
-    Frontright.setInverted(true);
-    RearLeft.setInverted(true);
-    Rearright.setInverted(true);
+    System.out.println("left");
+    // Frontleft.set(0.3);
+    // Frontright.set(0.3);
+    // RearLeft.set(0.3);
+    // Rearright.set(0.3);
+    // Frontleft.setInverted(true);
+    // Frontright.setInverted(true);
+    // RearLeft.setInverted(true);
+    // Rearright.setInverted(true);
 
   }
 
   public void stop() {
-    Frontleft.set(0);
-    Frontright.set(0);
-    RearLeft.set(0);
-    Rearright.set(0);
+    System.out.println("stop");
+    // Frontleft.set(0);
+    // Frontright.set(0);
+    // RearLeft.set(0);
+    // Rearright.set(0);
   }
 
   public void autotarget() {
     double Tag_Area = LimelightHelpers.getTA("limelight"); // Use your actual limelight name
     double Tag_X = LimelightHelpers.getTX("limelight"); // Use your actual limelight name
 
-    if (Tag_X < 6 && Tag_X > -6 || Tag_X == 0) {
-      stop();
-      if (Tag_Area < 6 && Tag_Area > 4 || Tag_Area == 0) {
-        stop();
-      } else if (Tag_Area >= 6) {
-        backward();
-      } else if (Tag_Area <= 4) {
-        forward();
-      }
-    } else if (Tag_X >= 6) {
-      right();
-    } else {
-      left();
-    }
+    // if (Tag_X < 6 && Tag_X > -6 || Tag_X == 0) {
+    //   stop();
+    //   if (Tag_Area < 6 && Tag_Area > 4 || Tag_Area == 0) {
+    //     stop();
+    //   } else if (Tag_Area >= 6) {
+    //     backward();
+    //   } else if (Tag_Area <= 4) {
+    //     forward();
+    //   }
+    // } else if (Tag_X >= 6) {
+    //   right();
+    // } else {
+    //   left();
+    // }
   }
 
   public class AutoTargetCommand extends Command {
@@ -160,13 +186,6 @@ public class chassis extends SubsystemBase {
     // Query some boolean state, such as a digital sensor.
     return false;
   }
-
-  @Override
-  public void periodic() {
-  }
-
-  @Override
-  public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
-  }
 }
+
+ 

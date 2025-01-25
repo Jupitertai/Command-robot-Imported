@@ -61,9 +61,9 @@ public class Limelight extends SubsystemBase{
         getTA();
         getTX();
 
-        SmartDashboard.putNumber("Tag_ID", ID);
-        SmartDashboard.putNumber("Tag_Area", tA);
-        SmartDashboard.putNumber("Tag_X", tX);
+        // SmartDashboard.putNumber("Tag_ID", ID);
+        // SmartDashboard.putNumber("Tag_Area", tA);
+        // SmartDashboard.putNumber("Tag_X", tX);
 
 
         

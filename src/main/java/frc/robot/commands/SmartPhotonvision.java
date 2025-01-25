@@ -3,6 +3,7 @@ package frc.robot.commands;
 import org.photonvision.targeting.PhotonPipelineResult;
 import org.photonvision.targeting.PhotonTrackedTarget;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.LimelightHelpers;
 import frc.robot.subsystems.Photonvision;
@@ -21,7 +22,7 @@ public class SmartPhotonvision extends Command {
   }
 
   public void getnumfromvision() {
-    newPhotonvision.getvisionnum();
+    newPhotonvision.getvisionnum(); 
 
   }
   // public void autotarget() {
@@ -53,12 +54,24 @@ public class SmartPhotonvision extends Command {
   // newchassis.left();
   // }
   // }
-  public void letsgo() {
-    newPhotonvision.getvisionnum();
+
+  @Override
+  public void execute() {
+    // newPhotonvision.getvisionnum();
+    
+    newPhotonvision.getnumfromVision();
     double yaw = newPhotonvision.getYaw();
-    double pitch = newPhotonvision.getPitch();
-    double area = newPhotonvision.getArea();
+    double area = newPhotonvision.putandget();
     boolean hasTarget = newPhotonvision.hasTarget();
+       
+    // SmartDashboard.putNumber("getY", yaw);
+    // SmartDashboard.putNumber("getA",area);
+    // double Yaw = SmartDashboard.getNumber("getY", 0);
+    // double Pitch= SmartDashboard.getNumber("getP", 0);
+    // double Area = SmartDashboard.getNumber("getA", 0);        
+            
+
+
     if (newPhotonvision.isornot()) {
       
       if(area<1){
@@ -67,18 +80,19 @@ public class SmartPhotonvision extends Command {
       else if(area>4){
         myChassis.backward();
       }
-      else if(area==0){
+      else if(yaw>13){
         myChassis.stop();
       }
       else if(yaw<-14) {
         myChassis.left();
       }
-      else if (yaw>13){
+      else if (area==0){
         myChassis.right();
       }
       else{
         myChassis.stop();
       }
+      
 
   //     if (area < 6 && Tag_X > -6 || Tag_X == 0) {
   //       newchassis.stop();
@@ -102,4 +116,14 @@ public class SmartPhotonvision extends Command {
 
 }
   }
+
+  @Override
+  public void end(boolean interrupted) {
+    myChassis.stop();
+  }
 }
+  
+//   public void periodic() {
+//     letsgo();
+//   }
+// }
