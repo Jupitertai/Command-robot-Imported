@@ -45,14 +45,10 @@ public class Photonvision extends SubsystemBase {
 
     }
 
-    // 提供 getter 方法
+    
     public double getYaw() {
         return yaw;
     }
-
-    // public double getPitch() {
-    // return pitch;
-    // }
 
     public double getArea() {
         return area;
@@ -97,12 +93,9 @@ public class Photonvision extends SubsystemBase {
     }
 
     public void getnumfromVision() {
+        result = camera.getLatestResult();
         if (result.hasTargets()) {
-            
-            
-            
-            
-            
+
             target = result.getBestTarget();
             yaw = target.getYaw();
             pitch = target.getPitch();
@@ -111,7 +104,7 @@ public class Photonvision extends SubsystemBase {
 
             Transform3d bestCameraToTarget = target.getBestCameraToTarget();
             Transform3d alternateCameraToTarget = target.getAlternateCameraToTarget();
-            
+
             getvisionnum();
             SmartDashboard.putNumber("Yaw", yaw);
             SmartDashboard.putNumber("Pitch", pitch);
@@ -121,7 +114,6 @@ public class Photonvision extends SubsystemBase {
             // double Area = SmartDashboard.getNumber("getA", 0);
         }
 
-        
     }
 
     @Override

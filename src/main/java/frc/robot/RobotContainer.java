@@ -41,8 +41,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-    // mChassis.setDefaultCommand(
-    //   new RunCommand(()-> mChassis.drive(m_driverController.getLeftX()*0.5,m_driverController.getRightY()*0.5),mChassis));
+    mChassis.setDefaultCommand(
+      new RunCommand(()-> mChassis.drive(m_driverController.getLeftX()*0.5,m_driverController.getRightY()*0.5),mChassis));
   }
 
   /**
@@ -66,6 +66,7 @@ public class RobotContainer {
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
    * @return the command to run in autonomous
-   */
+  //  */
+  // .onFalse(new InstantCommand(mChassis::stop))
   }
 } 

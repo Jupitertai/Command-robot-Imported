@@ -40,27 +40,7 @@ public class chassis extends SubsystemBase {
     RearLeft.follow(Frontleft);
     Rearright.follow(Frontright);
 
-    Frontleft.setSafetyEnabled(true);
-    Frontleft.setSafetyEnabled(false); 
-    Frontleft.setExpiration(.1 );
-    Frontleft.feed();
-
-    
-    Frontright.setSafetyEnabled(true);
-    Frontright.setSafetyEnabled(false); 
-    Frontright.setExpiration(.1 );
-    Frontright.feed();
-    
-    RearLeft.setSafetyEnabled(true);
-    RearLeft.setSafetyEnabled(false); 
-    RearLeft.setExpiration(.1 );
-    RearLeft.feed();
-
-    
-    Rearright.setSafetyEnabled(true);
-    Rearright.setSafetyEnabled(false); 
-    Rearright.setExpiration(.1 );
-    Rearright.feed();
+  
   }
 
   public void drive(double X, double Y) {
@@ -69,62 +49,40 @@ public class chassis extends SubsystemBase {
 
   public void forward() {
     System.out.println("forward");
-    // Frontleft.set(0.3);
-    // Frontright.set(0.3);
-    // RearLeft.set(0.3);
-    // Rearright.set(0.3);
-    // Frontleft.setInverted(false);
-    // Frontright.setInverted(true);
-    // RearLeft.setInverted(false);
-    // Rearright.setInverted(true);
+    Frontleft.set(0.3);
+    Frontright.set(0.3);
+
 
   }
 
   public void backward() {
     System.out.println("backward");
-    // Frontleft.set(0.3);
-    // Frontright.set(0.3);
-    // RearLeft.set(0.3);
-    // Rearright.set(0.3);
-    // Frontleft.setInverted(true);
-    // Frontright.setInverted(false);
-    // RearLeft.setInverted(true);
-    // Rearright.setInverted(false);
+    Frontleft.set(-0.3);
+    Frontright.set(0.3);
+    
 
   }
 
   public void right() {
     System.out.println("right");
-    // Frontleft.set(0.3);
-    // Frontright.set(0.3);
-    // RearLeft.set(0.3);
-    // Rearright.set(0.3);
-    // Frontleft.setInverted(false);
-    // Frontright.setInverted(false);
-    // RearLeft.setInverted(false);
-    // Rearright.setInverted(false);
+    Frontleft.set(0.3);
+    Frontright.set(-0.3);
+
 
   }
 
   public void left() {
     System.out.println("left");
-    // Frontleft.set(0.3);
-    // Frontright.set(0.3);
-    // RearLeft.set(0.3);
-    // Rearright.set(0.3);
-    // Frontleft.setInverted(true);
-    // Frontright.setInverted(true);
-    // RearLeft.setInverted(true);
-    // Rearright.setInverted(true);
+    Frontleft.set(-0.3);
+    Frontright.set(0.3);
+    
 
   }
 
   public void stop() {
     System.out.println("stop");
-    // Frontleft.set(0);
-    // Frontright.set(0);
-    // RearLeft.set(0);
-    // Rearright.set(0);
+    Frontleft.set(0);
+    Frontright.set(0);
   }
 
   public void autotarget() {

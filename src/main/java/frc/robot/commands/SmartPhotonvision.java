@@ -59,6 +59,7 @@ public class SmartPhotonvision extends Command {
   public void execute() {
     // newPhotonvision.getvisionnum();
     
+    
     newPhotonvision.getnumfromVision();
     double yaw = newPhotonvision.getYaw();
     double area = newPhotonvision.putandget();
@@ -72,7 +73,7 @@ public class SmartPhotonvision extends Command {
             
 
 
-    if (newPhotonvision.isornot()) {
+    while(newPhotonvision.isornot()) {
       
       if(area<1){
         myChassis.forward();
