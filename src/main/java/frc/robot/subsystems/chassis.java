@@ -42,48 +42,79 @@ public class chassis extends SubsystemBase {
 
   
   }
+  
 
   public void drive(double X, double Y) {
-    tank.arcadeDrive(-X, Y);
+    tank.tankDrive(-Y, -Y); 
   }
 
   public void forward() {
     System.out.println("forward");
-    Frontleft.set(0.3);
-    Frontright.set(0.3);
-
-
+    tank.tankDrive(0.3, 0.3); 
   }
 
   public void backward() {
     System.out.println("backward");
-    Frontleft.set(-0.3);
-    Frontright.set(0.3);
-    
-
+    tank.tankDrive(-0.3, -0.3); 
   }
 
   public void right() {
     System.out.println("right");
-    Frontleft.set(0.3);
-    Frontright.set(-0.3);
-
-
+    tank.tankDrive(0.3, -0.3); 
   }
 
   public void left() {
     System.out.println("left");
-    Frontleft.set(-0.3);
-    Frontright.set(0.3);
-    
-
+    tank.tankDrive(-0.3, 0.3); 
   }
 
   public void stop() {
     System.out.println("stop");
-    Frontleft.set(0);
-    Frontright.set(0);
+    tank.tankDrive(0, 0);
   }
+
+
+  // public void drive(double X, double Y) {
+  //   tank.arcadeDrive(-X, Y);
+  // }
+
+  // public void forward() {
+  //   System.out.println("forward");
+  //   Frontleft.set(0.3);
+  //   Frontright.set(0.3);
+
+
+  // }
+
+  // public void backward() {
+  //   System.out.println("backward");
+  //   Frontleft.set(-0.3);
+  //   Frontright.set(0.3);
+    
+
+  // }
+
+  // public void right() {
+  //   System.out.println("right");
+  //   Frontleft.set(0.3);
+  //   Frontright.set(-0.3);
+
+
+  // }
+
+  // public void left() {
+  //   System.out.println("left");
+  //   Frontleft.set(-0.3);
+  //   Frontright.set(0.3);
+    
+
+  // }
+
+  // public void stop() {
+  //   System.out.println("stop");
+  //   Frontleft.set(0);
+  //   Frontright.set(0);
+  // }
 
   public void autotarget() {
     double Tag_Area = LimelightHelpers.getTA("limelight"); // Use your actual limelight name
