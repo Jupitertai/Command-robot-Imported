@@ -15,7 +15,7 @@ import frc.robot.LimelightHelpers;
 
 public class Photonvision extends SubsystemBase {
     public PhotonCamera camera = new PhotonCamera("limelight");
-    private PhotonPipelineResult result = camera.getLatestResult();
+    private PhotonPipelineResult result = camera.getLatestResult();     
 
     PhotonTrackedTarget target;
     private double yaw;
